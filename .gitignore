@@ -3,3 +3,8 @@ Materials/Materials.WebUI/obj/
 Materials/Materials.WebUI/wwwroot/lib/
 Materials/Materials.WebApi/obj/
 Materials/Materials.Domain/obj/
+Materials/Materials.WebUI/bin/
+Materials/Materials.WebApi/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+Materials/Materials.WebApi/bin/Debug/netcoreapp3.1/Materials.WebApi.runtimeconfig.json
+Materials/Materials.WebApi/bin/
+Materials/Materials.Domain/bin/
