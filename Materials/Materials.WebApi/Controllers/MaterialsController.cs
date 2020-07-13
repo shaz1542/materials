@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Materials.Application.Materials.Commands.CreateMaterial;
 using Materials.Application.Materials.Queries.GetAllMaterials;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,14 @@ namespace Materials.WebApi.Controllers
         public async Task<MaterialsListViewModel> GetAll()
         {
             return await Mediator.Send(new GetAllMaterialsQuery());
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> Create([FromBody] CreateMaterialCommand command)
+        {
+            var MaterialId = await Mediator.Send(command);
+
+            return Ok(MaterialId);
         }
 
     }
