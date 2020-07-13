@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Materials.Application.Materials.Commands.CreateMaterial;
+using Materials.Application.Materials.Commands.UpdateMaterial;
 using Materials.Application.Materials.Queries.GetAllMaterials;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,15 @@ namespace Materials.WebApi.Controllers
             var MaterialId = await Mediator.Send(command);
 
             return Ok(MaterialId);
+        }
+
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateMaterialCommand command)
+        {
+            await Mediator.Send(command);
+
+            return NoContent();
         }
 
     }
