@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Materials.Application.Materials.Commands.CreateMaterial;
+using Materials.Application.Materials.Commands.DeleteMaterial;
 using Materials.Application.Materials.Commands.UpdateMaterial;
 using Materials.Application.Materials.Queries.GetAllMaterials;
 using Microsoft.AspNetCore.Http;
@@ -36,6 +37,13 @@ namespace Materials.WebApi.Controllers
 
             return NoContent();
         }
+        
+        [HttpDelete("{*id}")]
+        public async Task<ActionResult<int>> Delete(string id)
+        {
+            var MaterialId = await Mediator.Send(new DeleteMaterialCommand { Id = id });
 
+            return Ok(MaterialId);
+        }
     }
 }
