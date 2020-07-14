@@ -38,8 +38,8 @@ namespace Materials.WebApi
 
             var store = new DocumentStore
             {
-                Urls = new string[] { "http://127.0.0.1:8080/" },
-                Database = "materials_db",
+                Urls = new string[] { Configuration.GetSection("RavenDbUrls").Value },
+                Database = Configuration.GetSection("RavenDatabase").Value,
                 Certificate = null
             };
 
