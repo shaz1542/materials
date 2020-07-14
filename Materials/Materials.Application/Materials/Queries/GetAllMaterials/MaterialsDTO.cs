@@ -20,7 +20,7 @@ namespace Materials.Application.Materials.Queries.GetAllMaterials
 
         public string Note { get; set; }
 
-        public MaterialFunctionDto MaterialFunctionDto { get; set; }
+        public MaterialFunctionDto MaterialFunction { get; set; }
 
         public void CreateMappings(Profile configuration)
         {
@@ -30,7 +30,7 @@ namespace Materials.Application.Materials.Queries.GetAllMaterials
                 .ForMember(pDTO => pDTO.PhaseType, opt => opt.MapFrom(p => p.PhaseType))
                 .ForMember(pDTO => pDTO.Note, opt => opt.MapFrom(p => p.Note))
                 .ForMember(pDTO => pDTO.Visible, opt => opt.MapFrom(p => p.Visible))
-                .ForMember(pDTO => pDTO.MaterialFunctionDto, opt => opt.MapFrom(p => p.MaterialFunction));
+                .ForMember(pDTO => pDTO.MaterialFunction, opt => opt.MapFrom(p => p.MaterialFunction));
 
         }   
     }

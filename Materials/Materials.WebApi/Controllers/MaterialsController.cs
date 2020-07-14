@@ -7,8 +7,10 @@ using Materials.Application.Materials.Commands.DeleteMaterial;
 using Materials.Application.Materials.Commands.UpdateMaterial;
 using Materials.Application.Materials.Queries.GetAllMaterials;
 using Materials.Application.Materials.Queries.GetMaterial;
+using Materials.Application.Materials.Queries.GetMaterialByName;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace Materials.WebApi.Controllers
 {
@@ -16,17 +18,20 @@ namespace Materials.WebApi.Controllers
     [ApiController]
     public class MaterialsController : BaseController
     {
+
         [HttpGet]
-        public async Task<MaterialsListViewModel> GetAll()
+        public async Task<MaterialViewModel> GetMaterialByName([FromQuery] string name)
         {
-            return await Mediator.Send(new GetAllMaterialsQuery());
+            return await Mediator.Send(new GetMaterialByNameQuery() { Name = name });
         }
+
 
         [HttpGet("{*id}")]
         public async Task<MaterialViewModel> GetMeterial(string id)
         {
             return await Mediator.Send(new GetMaterialQuery() { Id = id });
         }
+
 
         [HttpPost]
         public async Task<ActionResult<int>> Create([FromBody] CreateMaterialCommand command)

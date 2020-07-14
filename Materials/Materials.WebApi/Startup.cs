@@ -65,15 +65,12 @@ namespace Materials.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            
-
             app.UseRouting();
-
             
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers();    
             });
         }
     }
