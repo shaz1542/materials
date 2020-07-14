@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Materials.Domain.Entities;
+using MediatR;
 
 namespace Materials.Application.Materials.Commands.CreateMaterial
 {
@@ -10,5 +11,6 @@ namespace Materials.Application.Materials.Commands.CreateMaterial
         public string PhaseType { get; set; }
         public string Author { get; set; }
 
+        public MaterialFunction MaterialFunction {get;set;}
     }
 }

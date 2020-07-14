@@ -24,11 +24,7 @@ namespace Materials.Application.Materials.Commands.CreateMaterial
                 Author = request.Author,
                 Visible = request.Visible,
                 PhaseType = request.PhaseType,
-                MaterialFunction = new MaterialFunction()
-                {
-                    TemperatureMin = 0,
-                    TemperatureMax = 0
-                },
+                MaterialFunction = request.MaterialFunction,
                 Note = request.Note,
             };
             await _session.StoreAsync(document);

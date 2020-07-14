@@ -26,8 +26,8 @@ namespace Materials.Application.Materials.Commands.UpdateMaterial
             material.Note = request.Note;
             material.PhaseType = request.PhaseType;
             material.Visible = request.Visible;
+            material.MaterialFunction = request.MaterialFunction;
 
-            
             await _session.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
