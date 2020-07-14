@@ -33,7 +33,5 @@ namespace Materials.Application.Materials.Queries.GetMaterial
                 .ForMember(mDTO => mDTO.Visible, opt => opt.MapFrom(m => m.Visible))
                 .ForMember(mDTO => mDTO.MaterialFunction, opt => opt.MapFrom(m => m.MaterialFunction));
         }
-
-
     }
 }

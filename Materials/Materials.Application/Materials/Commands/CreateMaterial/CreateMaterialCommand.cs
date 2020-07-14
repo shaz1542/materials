@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Materials.Application.Materials.Commands.CreateMaterial
 {
-    public class CreateMaterialCommand : IRequest<int>
+    public class CreateMaterialCommand : IRequest
     {
         public string Name { get; set; }
         public string Note { get; set; }

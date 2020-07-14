@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Materials.Application.Materials.Commands.CreateMaterial
 {
-    class CreateMaterialCommandHandler : IRequestHandler<CreateMaterialCommand,int>
+    class CreateMaterialCommandHandler : IRequestHandler<CreateMaterialCommand,Unit>
     {
         private readonly IAsyncDocumentSession _session;
 
@@ -16,7 +16,7 @@ namespace Materials.Application.Materials.Commands.CreateMaterial
             _session = session;
         }
 
-        public async Task<int> Handle(CreateMaterialCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateMaterialCommand request, CancellationToken CancellationToken)
         {
             var document = new Material
             {
@@ -28,8 +28,8 @@ namespace Materials.Application.Materials.Commands.CreateMaterial
                 Note = request.Note,
             };
             await _session.StoreAsync(document);
-            await _session.SaveChangesAsync();
-            return 1;
+            await _session.SaveChangesAsync(CancellationToken);
+            return Unit.Value;
         }
 
     }
